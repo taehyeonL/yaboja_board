@@ -13,12 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 import mc.sn.ybjService.MemberService;
 import mc.sn.ybjVO.ybjMemVO;
 
-@Controller("memController")
-@RequestMapping("/mem/*")
-public class MemController {
+@Controller("memberController")
+@RequestMapping("/member/*")
+public class MemberController {
 
 	@Autowired
-	MemberService memservice;
+	MemberService memberservice;
 
 	@RequestMapping(value="", method = RequestMethod.GET)
 	public ModelAndView home(HttpServletRequest req, HttpServletResponse resp) {
@@ -42,14 +42,14 @@ public class MemController {
 	public int signIn(HttpServletRequest req, HttpServletResponse resp) {
 		//테스트용 하드코딩
 		ybjMemVO memberVO = new ybjMemVO("id1","ya@ya.com","1234","lee","netflix","010", null, null, null);
-		int num = memservice.addMember(memberVO);
+		int num = memberservice.addMember(memberVO);
 		return num;
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public ybjMemVO logIn(HttpServletRequest req, HttpServletResponse resp) {
-		ybjMemVO vo = memservice.login(null);
+		ybjMemVO vo = memberservice.login(null);
 		return vo;
 	}
 	
