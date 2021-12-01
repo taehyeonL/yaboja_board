@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper 수정 필요 -->
+<!--property:VO프로퍼티  -->
+<!--column db필드명  -->
+<mapper namespace="mapper.yamember">
+	<resultMap id="memResult" type="MemVO">
+		<result property="yaId" column="ya_id" />
+        <result property="yaEmail" column="ya_email" />
+        <result property="yaPwd" column="ya_pwd" />
+        <result property="yaName" column="ya_name" />
+        <result property="yaMyott" column="ya_myOTT" />
+        <result property="yaPhNum" column="ya_phNum" />
+        <result property="yaLevel" column="ya_level" />
+        <result property="yaPoint" column="ya_point" />
+        <result property="timestamp" column="write_time" />
+
+<!-- 		<result property="yaId" column="yaId" />
+        <result property="yaEmail" column="yaEmail" />
+        <result property="yaPwd" column="yaPwd" />
+        <result property="yaName" column="yaName" />
+        <result property="yaMyott" column="yaMyott" />
+        <result property="yaPhNum" column="yaPhNum" />
+        <result property="yaLevel" column="yaLevel" />
+        <result property="yaPoint" column="yaPoint" />
+        <result property="timestamp" column="timestamp" /> -->
+        
+
+	</resultMap> 
+
+
+
+
+	<insert id="insertMember"  parameterType="MemVO">
+		<![CDATA[
+			insert into yaMemberTbl(ya_id,ya_email,ya_pwd,ya_name,ya_myOTT,ya_phNum)
+			values(#{ya_id}, #{ya_email}, #{ya_pwd}, #{ya_name}, #{ya_myOTT}, #{ya_phNum})
+		]]>      
+	</insert>
+	
+	<select id="checkEmail"  resultType="int"   parameterType="String" >
+		<![CDATA[
+			select count(*) from yamemberTbl where ya_mail=#{ya_mail} 
+		]]>
+	</select>
+	
+	<select id="checkId"  resultType="int"   parameterType="String" >
+		<![CDATA[
+			select count(*) from yamemberTbl where ya_id=#{ya_id}
+		]]>
+	</select>
+	
+	  <select id="loginById"  resultType="MemVO"   parameterType="MemVO" >
+	<![CDATA[
+		select * from yamemberTbl	
+		where ya_id=#{ya_id} and ya_pwd=#{ya_pwd}		
+	]]>
+  </select>
+   
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+</mapper>
