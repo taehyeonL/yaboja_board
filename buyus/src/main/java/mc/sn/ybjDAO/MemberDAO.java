@@ -6,6 +6,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import mc.sn.ybjVO.ybjMemVO;
+import mc.sn.ybjVO.ybjfollowVO;
 
 
 
@@ -37,5 +38,38 @@ public class MemberDAO {
 			ybjMemVO memvo=null;
 			memvo=sqlSession.selectOne("mapper.yamember.loginById", vo);
 			return memvo;
+		}
+		
+		//회원탈퇴
+		public int deleteMember() {
+			int result=0;
+			return result;
+		}
+		//레벨조회
+		public ybjMemVO selectLevel() {
+			ybjMemVO vo=null;
+			
+			return vo;		
+		}
+		
+		//포인트조회
+		public ybjMemVO selectPoint() {
+			ybjMemVO vo=null;
+			
+			return vo;		
+		}
+		//내가 구독하는 사람 조회
+		public ybjfollowVO selectFollowing() {
+			ybjfollowVO vo=null;
+			
+			return vo;		
+		}
+		
+		//나를 구독하는 사람 조회
+		
+		public ybjfollowVO selectFollowed() {
+			ybjfollowVO vo=null;
+			
+			return vo;		
 		}
 }
