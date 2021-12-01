@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import mc.sn.ybjDAO.MemberDAO;
 import mc.sn.ybjVO.ybjMemVO;
+import mc.sn.ybjVO.ybjfollowVO;
 
 @Service("memberService")
 public class MemberService {
@@ -34,5 +35,37 @@ public class MemberService {
 		ybjMemVO memvo=null;
 		memvo=memberDAO.loginByIdPw(memvo);
 		return memvo;
+	}
+	//회원탈퇴
+	public int eraseMember() {
+		int result=0;
+		return result;
+	}
+	//레벨조회
+	public ybjMemVO readLevel() {
+		ybjMemVO vo=null;
+		
+		return vo;		
+	}
+	
+	//포인트조회
+	public ybjMemVO readPoint() {
+		ybjMemVO vo=null;
+		
+		return vo;		
+	}
+	//내가 구독하는 사람 조회
+	public ybjfollowVO readFollowing() {
+		ybjfollowVO vo=null;
+		
+		return vo;		
+	}
+	
+	//나를 구독하는 사람 조회
+	
+	public ybjfollowVO readFollowed() {
+		ybjfollowVO vo=null;
+		
+		return vo;		
 	}
 }
