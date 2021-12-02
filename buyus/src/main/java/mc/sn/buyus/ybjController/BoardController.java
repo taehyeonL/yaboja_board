@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import mc.sn.buyus.ybjService.BoardService;
+
 @Controller("boardController")
 @RequestMapping("/board/*")
 public class BoardController {
 	
-//	@Autowired
-//	BoardService boardservice;
+	@Autowired
+	private BoardService boardservice;
 	
 	//리뷰 CRUD
 	@ResponseBody

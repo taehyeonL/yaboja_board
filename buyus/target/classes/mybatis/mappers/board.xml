@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.yaboard">
+
+	
+	
+	
+	<!-- 글쓰기. cotent은 프론트에서 글쓰기 누르면 자동적으로 받아온다 이걸로 컨텐츠를 구분한다. -->
+	<insert id="insertBoard"  parameterType="BoardVO">
+		<![CDATA[
+			insert into boardTbl(Board_Tile, Board_Body,ya_id, content_title)
+			values(#{title}, #{body}, #{ya_id}, #{content_title})
+		]]>      
+	</insert>
+	
+	<insert id="insertBoard_reply"  parameterType="BoardRPVO">
+		<![CDATA[
+			insert into boardreplyTbl(find_board, id, reply_body)
+			values(#{find_board}, #{id}, #{reply_body})
+		]]>      
+	</insert>
+	
+	<insert id="insertReview"  parameterType="ReviewVO">
+		<![CDATA[
+			insert into yareviewtbl(id, ottName, review_title, eval, review_body)
+			values(#{id}, #{ottName}, #{eval}, #{review_body})
+		]]>      
+	</insert>
+	
+	<insert id="insertReviewReply"  parameterType="ReviewReplyVO">
+		<![CDATA[
+			insert into (find_review, id, reply_body)
+			values(#{find_review}, #{id}, #{reply_body})
+		]]>      
+	</insert>
+	<!-- 리절트맵 써야해?
+	<resultMap id="boardResult" type="BoardVO">
+		<result property="" column="" />
+        <result property="" column="" />
+        <result property="" column="" />
+        <result property="" column="" />
+        <result property="" column="" />
+	</resultMap> 
+	
+	<resultMap id="boardreplyResult" type="BoardRPVO">
+		<result property="" column="" />
+        <result property="" column="" />
+        <result property="" column="" />
+        <result property="" column="" />
+        <result property="" column="" />
+	</resultMap> 
+	
+	<resultMap id="reviewResult" type="ReviewVO">
+		<result property="" column="" />
+        <result property="" column="" />
+        <result property="" column="" />
+        <result property="" column="" />
+        <result property="" column="" />
+	</resultMap> 
+		<resultMap id="reviewreplyResult" type="ReviewReplyVO">
+		<result property="" column="" />
+        <result property="" column="" />
+        <result property="" column="" />
+        <result property="" column="" />
+        <result property="" column="" />
+	</resultMap>  -->
+	
+	<select id="selectBoard"  parameterType="String"  resultType="BoardVO">
+		<![CDATA[
+			select * from boardtbl where content_title = #{content_title} 
+		]]>      
+	</select>
+	
+	<select id="selectBoardReply"  parameterType="String" resultType="BoardRPVO">
+		<![CDATA[
+			select * from boardreplytbl where find_board = #{find_board} 
+		]]>      
+	</select>
+	
+	<!--ottName은 컨텐츠의 이름이다.  -->
+	<select id="selectReview"  parameterType="String"  resultType="ReviewVO">
+		<![CDATA[
+			select * from yareviewtbl where ottName = #{ottName} 
+		]]>      
+	</select>
+		<select id="selectReviewReply"  parameterType="String"  resultType="ReviewReplyVO">
+		<![CDATA[
+			select * from yareviewreplytbl where find_review = #{find_review} 
+		]]>      
+	</select>
+	
+	
+	
+	<update id="updateBoard"  parameterType="BoardVO">
+		<![CDATA[
+			update boardtbl set Board_Title = #{Board_Title}, Board_Body = #{Board_Body}
+			where seq_board = #{seq_board}
+		]]>      
+	</update>
+	
+	<update id="updateBoardReply"  parameterType="BoardRPVO">
+		<![CDATA[
+			update boardreplytbl set Board_Title = #{Board_Title}, Board_Body = #{Board_Body}
+			where find_board seq_boardreply = #{seq_boardreply}
+		]]>      
+	</update>
+	
+	<update id="updateReview"  parameterType="ReviewVO">
+		<![CDATA[
+			update yaReviewTbl set review_title = #{review_title}, review_body = #{review_body}
+			where seq_review = #{seq_review}
+		]]>      
+	</update>
+	
+	<update id="updateReviewReply"  parameterType="ReviewReplyVO">
+		<![CDATA[
+			update yaReviewReplyTbl set reply_body = #{reply_body}
+			where seq_board seq_reviewreply= #{seq_reviewreply}
+		]]>      
+	</update>
+	
+	<!-- 	 삭제할 게시물 이름을 게시글 고유번호로 찾는다 이거 필요없을듯?
+	<select id="selectDeleteBoard"  parameterType="int"  resultType="String">
+		<![CDATA[
+			select Board_Title from boardtbl where seq_board = #{seq_board} 
+		]]>      
+	</select>
+	
+
+	
+	<select id="selectDeleteReview"  parameterType="int"  resultType="String">
+		<![CDATA[
+			select review_title from yareviewtbl where seq_review = #{seq_review} 
+		]]>      
+	</select> -->
+
+	
+	<!-- 삭제할 게시물 이름을 토대로 삭제 -->
+	<delete id="deleteBoard"  parameterType="String">
+		<![CDATA[
+			delete from boardtbl where seq_board = #{seq_board}
+		]]>      
+	</delete>
+	
+	<delete id="deleteBoardReply"  parameterType="String">
+		<![CDATA[
+			delete from boardreplytbl where find_board seq_boardreply = #{seq_boardreply}
+		]]>      
+	</delete>
+	
+	<delete id="deleteReview"  parameterType="String">
+		<![CDATA[
+			delete from yaReviewTbl	where seq_review = #{seq_review}
+		]]>      
+	</delete>
+	
+	<delete id="deleteReviewReply"  parameterType="String">
+		<![CDATA[
+			delete from yaReviewReplyTbl where seq_board seq_reviewreply= #{seq_reviewreply}
+		]]>      
+	</delete>
+	
+	
+	<!-- 조회수  -->
+	<update id="countView"  parameterType="int">
+		<![CDATA[
+			update BoardTbl set view_count = view_count+1
+			where seq_board = #{seq_board}
+		]]>      
+	</update>
+</mapper>
