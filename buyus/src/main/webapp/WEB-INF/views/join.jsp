@@ -7,13 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>join BBS</title>
-<link rel="stylesheet" href="resources/css/test.css">
+<link rel="stylesheet" href="../resources/css/myCss.css">
 <%
 	SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd HH:mm");
 	String now = sdf.format(new Date());
 %>
-<script src="./js/jquery-3.6.0.min.js"></script>
-<script src="./js/ybs.js"></script>
+<script src="../resources/js/jquery-3.6.0.min.js"></script>
+<script src="../resources/js/ybs.js"></script>
 
 
 </head>
@@ -24,7 +24,12 @@
 		<th colspan="3"><h2>회원가입</h2></th>
 		</tr>
 		<tr>
-			<th>아이디</th>
+			<th>메일주소</th>
+			<td><input type="text" name="email" id="email"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>닉네임</th>
 			<td><input type="text" name="id" id="id"></td>
 			<td><input type="button" name="checkId" value="id확인" id="checkId"></td>
 		<tr>
@@ -35,11 +40,6 @@
 		<tr>
 			<th>이름</th>
 			<td><input type="text" name="name" id="name"></td>
-			<td></td>
-		</tr>
-		<tr>
-			<th>메일주소</th>
-			<td><input type="text" name="email" id="email"></td>
 			<td></td>
 		</tr>
 		<tr>

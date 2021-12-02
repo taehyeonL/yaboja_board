@@ -59,17 +59,26 @@ public class MemberController {
 		return flag;
 	}
 
-	@ResponseBody
-	@RequestMapping(value = "join", method = RequestMethod.GET)
-	public boolean signIn(HttpServletRequest req, HttpServletResponse resp) {
-		// 테스트용 하드코딩
-		memberVO = new ybjMemVO("id1", "ya@ya.com", "1234", "lee", "netflix", "010", null, null, null);
-		flag = memberService.addMember(memberVO);
-		return flag;
-	}
+//	@ResponseBody
+//	@RequestMapping(value = "join", method = RequestMethod.GET)
+//	public boolean signIn(HttpServletRequest req, HttpServletResponse resp) {
+//		// 테스트용 하드코딩
+//		memberVO = new ybjMemVO("id1", "ya@ya.com", "1234", "lee", "netflix", "010", null, null, null);
+//		flag = memberService.addMember(memberVO);
+//		return flag;
+//	}
 
+	@RequestMapping(value = "join", method = RequestMethod.GET)
+	public ModelAndView signIn(HttpServletRequest req, HttpServletResponse resp) {
+		ModelAndView mav = new ModelAndView();
+		String url = "join";
+		mav.setViewName(url);
+		return mav;
+
+	}
+	
 	@ResponseBody
-	@RequestMapping(value = "login", method = RequestMethod.GET)
+	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public ybjMemVO logIn(HttpServletRequest req, HttpServletResponse resp) {
 		ybjMemVO vo = memberService.login(null);
 		return vo;
