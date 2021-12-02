@@ -50,17 +50,17 @@
 		]]>
 	</select>
 
-	<select id="selectById" resultType="MemVO" parameterType="MemVO">
+	<select id="selectByEmail" resultType="MemVO" parameterType="MemVO">
 	<![CDATA[
 		select * from yamemberTbl	
-		where ya_id=#{ya_id} and ya_pwd=#{ya_pwd}		
+		where ya_email=#{ya_email} and ya_pwd=#{ya_pwd}		
 	]]>
 	</select>
 
-	<delete id="deleteById" parameterType="MemVO">
+	<delete id="deleteByEmail" parameterType="MemVO">
 	<![CDATA[
 		delete * from yamemberTbl	
-		where ya_id=#{ya_id} and ya_pwd=#{ya_pwd}		
+		where ya_email=#{ya_email} and ya_pwd=#{ya_pwd}		
 	]]>
 	</delete>
 

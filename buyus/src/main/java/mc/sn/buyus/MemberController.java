@@ -1,4 +1,4 @@
-package mc.sn.ybjController;
+package mc.sn.buyus;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,18 +14,24 @@ import mc.sn.ybjService.MemberService;
 import mc.sn.ybjVO.ybjMemVO;
 
 @Controller("memberController")
-@RequestMapping("/member/*")
+//@Controller
+@RequestMapping("member/*")
 public class MemberController {
 
 	boolean flag = false;
 
-	@Autowired
-	MemberService memberservice;
+	@Autowired(required = false)
+	private MemberService memberService;
+	
+	@Autowired(required = false)
+	private ybjMemVO memberVO;
+	
+	
 
-	@RequestMapping(value = "", method = RequestMethod.GET)
+	@RequestMapping(value = "main", method = RequestMethod.GET)
 	public ModelAndView home(HttpServletRequest req, HttpServletResponse resp) {
 		ModelAndView mav = new ModelAndView();
-		String url = "/App";
+		String url = "main";
 		mav.setViewName(url);
 		return mav;
 	}
@@ -40,39 +46,39 @@ public class MemberController {
 	 */
 
 	@ResponseBody
-	@RequestMapping(value = "/checkId", method = RequestMethod.GET)
+	@RequestMapping(value = "checkId", method = RequestMethod.GET)
 	public boolean checkId(HttpServletRequest req, HttpServletResponse resp) {
-		flag = memberservice.CompareId(null);
+		flag = memberService.CompareId(null);
 		return flag;
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/checkEmail", method = RequestMethod.GET)
+	@RequestMapping(value = "checkEmail", method = RequestMethod.GET)
 	public boolean checkEmail(HttpServletRequest req, HttpServletResponse resp) {
-		flag = memberservice.CompareEmail(null);
+		flag = memberService.CompareEmail(null);
 		return flag;
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	@RequestMapping(value = "join", method = RequestMethod.GET)
 	public boolean signIn(HttpServletRequest req, HttpServletResponse resp) {
 		// 테스트용 하드코딩
-		ybjMemVO memberVO = new ybjMemVO("id1", "ya@ya.com", "1234", "lee", "netflix", "010", null, null, null);
-		flag = memberservice.addMember(memberVO);
+		memberVO = new ybjMemVO("id1", "ya@ya.com", "1234", "lee", "netflix", "010", null, null, null);
+		flag = memberService.addMember(memberVO);
 		return flag;
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public ybjMemVO logIn(HttpServletRequest req, HttpServletResponse resp) {
-		ybjMemVO vo = memberservice.login(null);
+		ybjMemVO vo = memberService.login(null);
 		return vo;
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/eraseMember", method = RequestMethod.GET)
+	@RequestMapping(value = "eraseMember", method = RequestMethod.GET)
 	public boolean eraseMember(HttpServletRequest req, HttpServletResponse resp) {
-		flag = memberservice.eraseMember(null);
+		flag = memberService.eraseMember(null);
 		return flag;
 	}
 

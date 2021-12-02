@@ -1,4 +1,4 @@
-package mc.sn.buyus;
+package mc.sn.ybjController;
 
 import java.text.DateFormat;
 import java.util.Date;

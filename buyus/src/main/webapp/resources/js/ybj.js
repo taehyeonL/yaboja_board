@@ -9,7 +9,7 @@ $(document).ready(function(){
 			data:{checkId:id},
 			type:"post",
 			dataType:"text",
-			url:"http://localhost:9090/BBS/CmdController?cmd=checkId",
+			url:"http://localhost:9090/buyus/member/checkId",
 			async:false,
 			success:function(data,textStatus){
 				alert(data);

@@ -10,7 +10,8 @@ import mc.sn.ybjVO.ybjfollowVO;
 
 
 
-@Repository("memberDAO")
+@Repository("MemberDAO")
+//@Repository
 public class MemberDAO {
 
 	boolean flag = false;
@@ -48,45 +49,36 @@ public class MemberDAO {
 		//vo에 id,pwd값이 들어있는 객체를 전달받아서 이 두개가 db내용과 일치할 경우 그 정보를 memvo로 전달받아 리턴
 		public ybjMemVO loginByIdPw(ybjMemVO vo) {
 			ybjMemVO memvo=null;
-			memvo=sqlSession.selectOne("mapper.yamember.loginById", vo);
+			memvo=sqlSession.selectOne("mapper.yamember.loginByEmail", vo);
 			return memvo;
 		}
 		
 		//회원탈퇴
 		public boolean deleteMember(ybjMemVO vo) {
-			int affectedCount = sqlSession.delete("mapper.yamember.deleteById", vo);
+			int affectedCount = sqlSession.delete("mapper.yamember.deleteByEmail", vo);
 			if(affectedCount>0) {
 				flag = true;
 			}
 			return flag;
 		}
 		
-		//레벨조회
-		public ybjMemVO selectLevel() {
-			ybjMemVO vo=null;
-			
-			return vo;		
-		}
-		
-		//포인트조회
-		public ybjMemVO selectPoint() {
-			ybjMemVO vo=null;
-			
-			return vo;		
-		}
-		
-		//내가 구독하는 사람 조회
-		public ybjfollowVO selectFollowing() {
-			ybjfollowVO vo=null;
-			
-			return vo;		
-		}
-		
-		//나를 구독하는 사람 조회
-		
-		public ybjfollowVO selectFollowed() {
-			ybjfollowVO vo=null;
-			
-			return vo;		
-		}
+	/*
+	 * //레벨조회 public ybjMemVO selectLevel() { ybjMemVO vo=null;
+	 * 
+	 * return vo; }
+	 * 
+	 * //포인트조회 public ybjMemVO selectPoint() { ybjMemVO vo=null;
+	 * 
+	 * return vo; }
+	 * 
+	 * //내가 구독하는 사람 조회 public ybjfollowVO selectFollowing() { ybjfollowVO vo=null;
+	 * 
+	 * return vo; }
+	 * 
+	 * //나를 구독하는 사람 조회
+	 * 
+	 * public ybjfollowVO selectFollowed() { ybjfollowVO vo=null;
+	 * 
+	 * return vo; }
+	 */
 }

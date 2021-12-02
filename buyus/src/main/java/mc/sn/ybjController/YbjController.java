@@ -1,3 +1,4 @@
+package mc.sn.ybjController;
 /*
  * package mc.sn.ybjController;
  * 

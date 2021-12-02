@@ -5,19 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>main</title>
-<link rel="stylesheet" href="../css/myCss.css">
-<link rel="stylesheet" href="resources/css/myCss.css">
+<link rel="stylesheet" href="../resources/css/myCss.css">
 </head>
 <body>
-<script type="text/javascript">
-</script>
+<script src="../resources/js/jquery-3.6.0.min.js"></script>
+<script src="../resources/js/ybs.js"></script>
 
 
-<form action="" method="post">
+<form action="http://localhost:9090/buyus/member/login" method="post">
 	<table>
 		<tr>
 			<th colspan="2"><h1>main</h1></th>
-			<th><a href=""><h4>회원가입</h4></a></th>
+			<th rowspan="2"><a href="http://localhost:9090/buyus/member/join"><h4>회원가입</h4></a></th>
 		</tr>
 		<tr>
 			<th>아이디: <input type="text" name="id"></th>

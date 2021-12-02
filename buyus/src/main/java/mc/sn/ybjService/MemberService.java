@@ -9,6 +9,7 @@ import mc.sn.ybjVO.ybjMemVO;
 import mc.sn.ybjVO.ybjfollowVO;
 
 @Service("memberService")
+//@Service
 public class MemberService {
 	
 	boolean flag = false;

@@ -13,7 +13,7 @@
 	String now = sdf.format(new Date());
 %>
 <script src="./js/jquery-3.6.0.min.js"></script>
-<script src=""></script>
+<script src="./js/ybs.js"></script>
 
 
 </head>
