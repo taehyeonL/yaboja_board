@@ -16,6 +16,12 @@
 	</properties>
 	<dependencies>
 		<!-- Spring -->
+			<!--spring과 spring jdbc 버전 맞춤 -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>5.0.7.RELEASE</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>

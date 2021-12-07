@@ -6,14 +6,15 @@
 <!-- VO수정필요 -->
 <configuration>
 	<typeAliases>
-		<typeAlias type="mc.sn.ybjVO.ybjBoardReplyVO"  alias="BoardRPVO" />
-		<typeAlias type="mc.sn.ybjVO.ybjBoardReportVO"  alias="BoardReportVO" />
-		<typeAlias type="mc.sn.ybjVO.ybjBoardVO"  alias="BoardVO" />
-		<typeAlias type="mc.sn.ybjVO.ybjContentVO"  alias="ContentVO" />
-		<typeAlias type="mc.sn.ybjVO.ybjMemVO"  alias="MemVO" />
-		<typeAlias type="mc.sn.ybjVO.ybjOttVO"  alias="OttVO" />
-		<typeAlias type="mc.sn.ybjVO.ybjReviewReplyVO"  alias="ReviewReplyVO" />
-		<typeAlias type="mc.sn.ybjVO.ybjReviewReportVO"  alias="ReviewReportVO" />
-		<typeAlias type="mc.sn.ybjVO.ybjReviewVO"  alias="ReviewVO" />
+		<typeAlias type="mc.sn.buyus.YbjVO.YbjReviewVO"  alias="ReviewVO" />
+		<typeAlias type="mc.sn.buyus.YbjVO.YbjBoardVO"  alias="BoardVO" />
+		<typeAlias type="mc.sn.buyus.YbjVO.YbjBoardReplyVO"  alias="BoardRPVO" />
+		<typeAlias type="mc.sn.buyus.YbjVO.YbjReviewReplyVO"  alias="ReviewRPVO" />
+ <!-- 		<typeAlias type="mc.sn.buyus.YbjVO.YbjBoardReportVO"  alias="BoardReportVO" />
+		<typeAlias type="mc.sn.buyus.YbjVO.YbjContentVO"  alias="ContentVO" />
+		<typeAlias type="mc.sn.buyus.YbjVO.YbjMemVO"  alias="MemVO" />
+		<typeAlias type="mc.sn.buyus.YbjVO.YbjOttVO"  alias="OttVO" />
+		<typeAlias type="mc.sn.buyus.YbjVO.YbjReviewReportVO"  alias="ReviewReportVO" />  -->
+		
 	</typeAliases>
 </configuration>
