@@ -1,0 +1,9 @@
+.body {
+    display: grid;
+    width: 200px;
+    align-items: center;
+}
+
+.button {
+    margin-top: 20px;
+}
