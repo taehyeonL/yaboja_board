@@ -47,7 +47,7 @@ function App() {
         'Content-Type' : 'application/json',
         'Access-Control-Allow-Credentials' : true
       },
-      body : JSON.stringify({body})
+      body : JSON.stringify(body)
     
     })
 }
