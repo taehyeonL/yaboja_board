@@ -8,7 +8,6 @@ function App() {
   const [score, setScore] = useState(0);
   const [text, setText] = useState("");
 
-
   const idChange = (e) => {
     setId(e.target.value);
   }
@@ -30,23 +29,28 @@ function App() {
     setText(e.target.value);
   }
 
-  const submitHandler = (e) => {
-    fetch('127.0.0.1:9090/buyus/board',
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({body}),
-  })
-}
-
   let body = {
-    id : {id},
-    ott : {ott},
-    title : {title},
-    score : {score},
-    text : {text},
+    "id" : id,
+    "ott" : ott,
+    "title" : title,
+    "score" : score,
+    "text" : text,
   }
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(id);
+    console.log(body);
+    fetch('/spring/p', {
+      method : 'POST',
+      headers : {
+        'Content-Type' : 'application/json',
+        'Access-Control-Allow-Credentials' : true
+      },
+      body : JSON.stringify({body})
+    
+    })
+}
   return (
     <form onSubmit={submitHandler} >
       <h1>리뷰</h1>
