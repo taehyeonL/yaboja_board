@@ -30,6 +30,11 @@ function App() {
     setText(e.target.value);
   }
 
+  const submitHandler = (e) => {
+    e.preventDefault()
+    console.log(body);
+  }
+
   let body = {
     id : {id},
     ott : {ott},
@@ -38,10 +43,8 @@ function App() {
     text : {text},
   }
 
-  console.log(body);
-
   return (
-    <form>
+    <form onSubmit={submitHandler} >
       <h1>리뷰</h1>
         <div className={styles.body}>
 
