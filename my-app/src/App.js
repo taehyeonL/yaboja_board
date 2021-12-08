@@ -1,22 +1,61 @@
+import { useState } from "react";
 import styles from "./App.module.css"
 
 function App() {
+  const [id, setId] = useState("");
+  const [ott, setOtt] = useState("");
+  const [title, setTitle] = useState("");
+  const [score, setScore] = useState(0);
+  const [text, setText] = useState("");
+
+
+  const idChange = (e) => {
+    setId(e.target.value);
+  }
+
+  const ottChange = (e) => {
+    setOtt(e.target.value);
+  }
+
+  const titleChange = (e) => {
+    setTitle(e.target.value);
+  }
+
+
+  const scoreChange = (e) => {
+    setScore(e.target.value);
+  }
+
+  const textChange = (e) => {
+    setText(e.target.value);
+  }
+
+  let body = {
+    id : {id},
+    ott : {ott},
+    title : {title},
+    score : {score},
+    text : {text},
+  }
+
+  console.log(body);
+
   return (
     <form>
       <h1>리뷰</h1>
         <div className={styles.body}>
 
-          <label for="id">유저 ID</label>
-          <input id="id" type="text" />
+          <label htmlFor="id">유저 ID</label>
+          <input onChange={idChange} id="id" type="text" />
 
-          <label for="OTT">OTT 이름</label>
-          <input id="OTT" type="text" />
+          <label htmlFor="OTT">OTT 이름</label>
+          <input onChange={ottChange} id="OTT" type="text" />
 
-          <label for="contentTitle">콘텐츠 제목</label>
-          <input id="contentTitle" type="text" />
+          <label htmlFor="contentTitle">콘텐츠 제목</label>
+          <input onChange={titleChange} id="contentTitle" type="text" />
 
           <label>평점</label>
-          <select>
+          <select onChange={scoreChange}>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -24,8 +63,8 @@ function App() {
             <option>5</option>
           </select>
 
-          <label for="reviewText">리뷰</label>
-          <input id="reviewText"type="text" />
+          <label htmlFor="reviewText">리뷰</label>
+          <input onChange={textChange} id="reviewText"type="text" />
 
           <button className={styles.button} type="submit">리뷰 작성</button>
         </div>
