@@ -31,9 +31,13 @@ function App() {
   }
 
   const submitHandler = (e) => {
-    e.preventDefault()
-    console.log(body);
-  }
+    fetch('127.0.0.1:9090/buyus/board',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({body}),
+  })
+}
 
   let body = {
     id : {id},
