@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./App.module.css"
+import {Axios} from "axios";
 
 function App() {
   const [id, setId] = useState("");
@@ -7,6 +8,7 @@ function App() {
   const [title, setTitle] = useState("");
   const [score, setScore] = useState(0);
   const [text, setText] = useState("");
+  const [result, setResult] = useState("");
 
   const idChange = (e) => {
     setId(e.target.value);
@@ -37,10 +39,7 @@ function App() {
     "text" : text,
   }
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    console.log(id);
-    console.log(body);
+  const postHandler = () => {
     fetch('/spring/p', {
       method : 'POST',
       headers : {
@@ -51,8 +50,20 @@ function App() {
     
     })
 }
+
+const getHandler = () => {
+  fetch('/spring/', 
+  {
+    headers : {
+      'Accept' : 'application/json',
+    }
+  })
+  .then(res=>res.json())
+  .then(json => console.log(json))
+}
   return (
-    <form onSubmit={submitHandler} >
+    <form>
+      <h1>{result}</h1>
       <h1>리뷰</h1>
         <div className={styles.body}>
 
@@ -77,7 +88,9 @@ function App() {
           <label htmlFor="reviewText">리뷰</label>
           <input onChange={textChange} id="reviewText"type="text" />
 
-          <button className={styles.button} type="submit">리뷰 작성</button>
+          <button className={styles.button} type="button" onClick={postHandler}>리뷰 작성</button>
+          <button className={styles.button} type="button" onClick={getHandler}>리뷰 가져오기</button>
+
         </div>
     </form>
   );
