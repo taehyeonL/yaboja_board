@@ -17,15 +17,15 @@
 	
 	<insert id="insertBoard_reply"  parameterType="BoardRPVO">
 		<![CDATA[
-			insert into boardreplyTbl(find_board, id, reply_body)
+			insert into boardReplyTbl(find_board, id, reply_body)
 			values(#{boardIndex}, #{id}, #{replyBody})
 		]]>      
 	</insert>
 	
 	<insert id="insertReview"  parameterType="ReviewVO">
 		<![CDATA[
-			insert into yaReviewTbl(id, review_title, eval, review_body,ottName)
-			values(#{id}, #{reviewTitle}, #{eval}, #{reviewBody},#{ottName})
+			insert into yaReviewTbl(id, review_title, eval, review_body)
+			values(#{id}, #{reviewTitle}, #{eval}, #{reviewBody})
 		]]>      
 	</insert>
 	<insert id="insertReviewReply"  parameterType="ReviewRPVO">
@@ -38,15 +38,15 @@
 
 	<update id="updateBoard"  parameterType="BoardVO">
 		<![CDATA[
-			update boardtbl set Board_Title = #{boardTitle}, Board_Body = #{boardBody}
+			update boardTbl set Board_Title = #{boardTitle}, Board_Body = #{boardBody}
 			where seq_board = #{index}
 		]]>      
 	</update>
 	
 	<update id="updateBoardReply"  parameterType="BoardRPVO">
 		<![CDATA[
-			update boardreplytbl set reply_body = #{replyBody}
-			where seq_boardreply = #{boardIndex}
+			update boardReplyTbl set reply_body = #{replyBody}
+			where seq_boardreply = #{boardReplyIndex}
 		]]>      
 	</update>
 	<update id="updateReview"  parameterType="ReviewVO">
@@ -66,13 +66,13 @@
 	
 	<delete id="deleteBoard"  parameterType="int">
 		<![CDATA[
-			delete from boardtbl where seq_board = #{index}
+			delete from BoardTbl where seq_board = #{index}
 		]]>      
 	</delete>
 	
 	<delete id="deleteBoardReply"  parameterType="int">
 		<![CDATA[
-			delete from boardreplytbl where seq_boardreply = #{boardIndex}
+			delete from boardReplyTbl where seq_boardreply = #{boardReplyIndex}
 		]]>      
 	</delete>
 	
@@ -84,7 +84,7 @@
 	
 	<delete id="deleteReviewReply"  parameterType="int">
 		<![CDATA[
-			delete from yaReviewReplyTbl where seq_reviewreply= #{reviewIndex}
+			delete from yaReviewReplyTbl where seq_reviewreply= #{reviewReplyIndex}
 		]]>      
 	</delete>
 	
@@ -131,24 +131,36 @@
 	
 	<select id="selectBoard"  parameterType="String"  resultMap="readBoardResult">
 		<![CDATA[
-			select * from boardtbl where content_title = #{contentTitle} 
+			select * from BoardTbl where content_title = #{contentTitle} 
 		]]>      
 	</select>
+	
+		<select id="selectDetailBoard"  parameterType="String"  resultMap="readBoardResult">
+		<![CDATA[
+			select * from BoardTbl where seq_board = #{index} 
+		]]>      
+	</select>
+	
+	
 	<select id="selectBoardReply"  parameterType="String" resultMap="readBoardReplyResult">
 		<![CDATA[
-			select * from boardreplytbl where find_board = #{boardIndex} 
+			select * from boardReplyTbl where find_board = #{boardIndex} 
 		]]>      
 	</select>
 		<select id="selectReview"  parameterType="String"  resultMap="readReviewResult">
 		<![CDATA[
-			select * from yareviewtbl where review_title = #{reviewTitle} 
+			select * from yaReviewTbl where review_title = #{reviewTitle} 
 		]]>      
 	</select>
+	
+
+	
+	
 		
 
 	<select id="selectReviewReply"  parameterType="String"  resultMap="readReviewReplyResult">
 		<![CDATA[
-			select * from yareviewreplytbl where find_review = #{reviewIndex}
+			select * from yaReviewReplyTbl where find_review = #{reviewIndex}
 		]]>      
 	</select>
 	
@@ -158,6 +170,9 @@
 		where seq_board = #{index}
 	]]>    
 	</update>
+	
+	<!-- 글 상세보기  -->
+	
 	
 	<!-- result map type으로 다시하자
 

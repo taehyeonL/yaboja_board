@@ -183,4 +183,14 @@ public class BoardService {
 		}
 		return flag;
 	}
+	
+	
+	public List<YbjBoardVO> readDetailBoard(int index) {
+		List<YbjBoardVO> list=null;
+		boardDAO.countview(index);
+		list=boardDAO.selectDetailBoard(index);
+		return list;		
+	}
+	
+
 }

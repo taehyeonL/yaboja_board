@@ -10,8 +10,9 @@
 		<typeAlias type="mc.sn.buyus.YbjVO.YbjBoardVO"  alias="BoardVO" />
 		<typeAlias type="mc.sn.buyus.YbjVO.YbjBoardReplyVO"  alias="BoardRPVO" />
 		<typeAlias type="mc.sn.buyus.YbjVO.YbjReviewReplyVO"  alias="ReviewRPVO" />
- <!-- 		<typeAlias type="mc.sn.buyus.YbjVO.YbjBoardReportVO"  alias="BoardReportVO" />
 		<typeAlias type="mc.sn.buyus.YbjVO.YbjContentVO"  alias="ContentVO" />
+		<!-- <typeAlias type="mc.sn.buyus.YbjVO.dbVO"  alias="DbVO" /> -->
+ <!-- 		<typeAlias type="mc.sn.buyus.YbjVO.YbjBoardReportVO"  alias="BoardReportVO" />
 		<typeAlias type="mc.sn.buyus.YbjVO.YbjMemVO"  alias="MemVO" />
 		<typeAlias type="mc.sn.buyus.YbjVO.YbjOttVO"  alias="OttVO" />
 		<typeAlias type="mc.sn.buyus.YbjVO.YbjReviewReportVO"  alias="ReviewReportVO" />  -->

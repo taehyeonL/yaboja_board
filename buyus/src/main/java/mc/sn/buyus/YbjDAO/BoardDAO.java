@@ -66,12 +66,18 @@ public class BoardDAO {
 		list = sqlSession.selectList("mapper.yaboard.selectBoard", content_title);
 		return list;
 	}
+	public List<YbjBoardVO> selectDetailBoard(int index) {
+		List<YbjBoardVO> list = null;
+		list = sqlSession.selectList("mapper.yaboard.selectDetailBoard", index);
+		return list;
+	}
 
 	public List<YbjBoardReplyVO> selectAllBoard_reply(int find_board) {
 		List<YbjBoardReplyVO> list = null;
 		list = sqlSession.selectList("mapper.yaboard.selectBoardReply", find_board);
 		return list;
 	}
+	
 
 	// review_title, review_body, seq_review
 	public int updateReview(YbjReviewVO vo) {

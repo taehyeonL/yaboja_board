@@ -1,4 +1,6 @@
-package temp;
+package mc.sn.buyus.YbjService;
+
+import mc.sn.buyus.YbjVO.YbjContentVO;
 
 public class ContentService {
 	public YbjContentVO read_filter_movie() {

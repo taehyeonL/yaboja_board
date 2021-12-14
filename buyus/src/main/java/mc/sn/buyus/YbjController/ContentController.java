@@ -1,4 +1,4 @@
-package temp;
+package mc.sn.buyus.YbjController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
