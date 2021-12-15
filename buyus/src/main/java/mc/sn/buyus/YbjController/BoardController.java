@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
 import mc.sn.buyus.YbjService.BoardService;
@@ -39,7 +40,12 @@ public class BoardController {
 	@Autowired
 	private YbjReviewReplyVO reviewRPVO;
 	
+	
+	
+	
 	//글쓰기
+
+	
 	@ResponseBody
 	@RequestMapping(value = "/board", method = RequestMethod.POST)
 	public boolean writeBoard(@RequestBody YbjBoardVO boardVO){
@@ -312,6 +318,7 @@ public class BoardController {
 		}
 		return flag;
 		}
+	
 
 //	@ResponseBody
 //	@RequestMapping(value = "boardclick", method = RequestMethod.GET)

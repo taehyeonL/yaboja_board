@@ -171,6 +171,27 @@
 	]]>    
 	</update>
 	
+	
+	<insert id="insertDBTitle"  parameterType="String">
+		<![CDATA[
+			insert into apiDBTest(title)
+			values(#{title})
+		]]>      
+	</insert>
+		<insert id="insertDB"  parameterType="ContentDbVO">
+		<![CDATA[
+			insert into apiDB(id, title, genres)
+			values(#{id},#{title}, #{genres})
+		]]>      
+		
+	</insert>
+<!-- 			<insert id="insertDB"  parameterType="ContentDbVO">
+		<![CDATA[
+			insert into apiDB(title, genres)
+			values(#{title}, #{title})
+		]]>      
+		
+	</insert> -->
 	<!-- 글 상세보기  -->
 	
 	
