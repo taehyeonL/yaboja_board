@@ -1,4 +1,4 @@
-package mc.sn.buyus.YbjService;
+package temp;
 
 import mc.sn.buyus.YbjVO.YbjContentVO;
 

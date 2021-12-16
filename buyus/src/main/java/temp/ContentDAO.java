@@ -1,4 +1,4 @@
-package mc.sn.buyus.YbjDAO;
+package temp;
 
 import java.util.List;
 
